@@ -3,24 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <title>HOME PAGE</title>
+    <style>
+#label_color{
+    color:white;
+}
+    </style>
+
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static "css/bootstrap.min.css"%}" type="text/css">
+
+        <link type="text/css" rel="stylesheet" href="{% static "css/bootstrap.min.css"%}" >
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script>
+        function show_password() {
+            var inputPass = document.getElementById('fac_pwd');
+      var inputChk  = document.getElementById('chk');
+      var label = document.getElementById('showhide');
+     inputChk.onclick = function () {
+
+      if(inputChk.checked) {
+
+           inputPass.setAttribute('type', 'text');
+           label.textContent = 'Hide Passowrd';
+       } else {
+
+           inputPass.setAttribute('type', 'password');
+           label.textContent = 'Show Passowrd';
+       }
+
+     }
+
+        }
+    </script>
+
 </head>
 <body>
-<div class="row">
-    <div class="col-6" style="background-color: white">
-<h1>BMA CLUB</h1>
-        <img src="{% static "images/BMA.png" %}"/>
+
+<div class="row" style="background-color: #3f51b5;width: auto" >
+    <div class="col-8">
+        <h1 style="color: white;margin-top: 10px">BMA CLUBS</h1>
+    </div>
+    <div class="col-4">
+        <div>
+            <form action="login" method="post">
+                {% csrf_token %}
+                <table>
+                    <tbody>
+                    <tr>
+                        <th>
+                            <label id="label_color">Email</label>
+                        </th>
+                        <th>
+                            <label id="label_color"style="margin-left: 20px">Password</label>
+                        </th>
+                    </tr>
+                    <tr style="padding-bottom: 10px">
+                        <td>
+                            <input type="email"/>
+                        </td>
+                        <td>
+                            <input id="fac_pwd"type="password" style="margin-left: 20px"/>
+                        </td>
+                        <td>
+                            <button type="submit" class="btn-outline-success">Login</button>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="1"></td>
+                        <td>
+                            <input  style="margin-left: 15px" type="checkbox" id="chk" onclick="show_password()">
+                        <label id="showhide" class="label" style="color: black"><b>Show Password</b></label>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
 </div>
-<div class="col-6" style="background-color: yellow">
-<h2>there</h2>
-    <p>asdasdasdasdasdasdsadasdasdasdadsddasdsadasdasdasdasdadasd
-    sdasdasdsad
-    asdsad
-    asdsad
-    asdasd
-    asdasd</p>
+
+<div style="margin-top: 0.019cm"></div>
+
+<div class="row" style="height: 847px;width: auto">
+        <div class="col-8" style="background-color: #bbdefb">
+
+
+
+        </div>
+        <div class="col-4"style="background-color: #bbdefb">
+            <div class="row">
+                <h1>New account!!</h1>
+            </div>
+            <div style="width:600px">
+                <form method="post" action="#">
+                    <div class="form-group">
+                        <label style="font-family: 'Comic Sans MS'" ><h4><b>Name</b></h4></label>
+                        <input type="text" class=" form-control" id="name" name="studname">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label style="font-family: 'Comic Sans MS'"> <h4><b>Email</b></h4></label>
+                        <input type="email" class=" form-control" id="f_name" name="f_name">
+                    </div>
+                    <div class="form-group">
+                        <label style="font-family: 'Comic Sans MS'"> <h4><b>Date of Birth</b></h4></label>
+                        <input type="date" class=" form-control" id="f_name" name="f_name">
+                    </div>
+                    <div class="form-group">
+                        <label style="font-family: 'Comic Sans MS'"> <h4><b>Address</b></h4></label>
+                        <textarea type="text" class=" form-control" id="f_name" name="f_name"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label style="font-family: 'Comic Sans MS'"><h4><b>Gender</b></h4></label>
+                    </div>
+                    <div class="form-group">
+                        <input type="radio" style="margin-left: 70px" class="form"  id="male" name="gender">MALE
+                        <input type="radio"  style="margin-left:70px" id="female" name="gender">FEMALE
+                    </div>
+                    <div class="form-group">
+                        <button style="width: 165px" type="submit" class="btn btn-success">SUBMIT</button>
+                        <button style="width: 165px"  type="reset " class="btn btn-danger ">RESET</button>
+                    </div>
+
+
+
+                </form>
+            </div>
+        </div>
 </div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
