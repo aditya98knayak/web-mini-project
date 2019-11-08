@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>dahsboard</title>
+    <title>Dashboard</title>
     {% load staticfiles %}
 
         <link type="text/css" rel="stylesheet" href="{% static "css/bootstrap.min.css"%}" >
@@ -11,61 +11,63 @@
 * {box-sizing: border-box}
 body {font-family: "Lato", sans-serif;}
 
-/* Style the tab */
+
 .tab {
   float: left;
   border: 1px solid #ccc;
   background-color: #3f51b5;
   width: 10%;
-  height: 900px;
+  height: 100%;
 }
 
-/* Style the buttons inside the tab */
 .tab button {
   display: block;
   background-color: inherit;
   color: black;
   padding: 22px 16px;
   width: 100%;
+  height: 25%;
+  margin-top:133px;
+  margin-bottom: 133px;
   border: none;
   outline: none;
-  text-align: left;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: solid;
   cursor: pointer;
   transition: 0.3s;
   font-size: 17px;
 }
 
-/* Change background color of buttons on hover */
 .tab button:hover {
   background-color: #ddd;
 }
 
-/* Create an active/current "tab button" class */
 .tab button.active {
   background-color: #ccc;
 }
 
-/* Style the tab content */
 .tabcontent {
   float: left;
   padding: 0px 12px;
-  border: 1px solid #ccc;
   width:available;
   border-left: none;
-  height: 900px;
+  height: auto;
 }
 </style>
 </head>
+
 <body>
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'home')" id="defaultOpen">Home</button>
-  <button class="tablinks" onclick="openCity(event, 'about')">About</button>
-  <button class="tablinks" onclick="openCity(event, 'services')">Services</button>
+  <button class="tablinks" onclick="openCity(event, 'home')" id="defaultOpen"><label>Home</label></button>
+  <button class="tablinks" onclick="openCity(event, 'about')"><label>About</label></button>
+  <button class="tablinks" onclick="openCity(event, 'services')"><label>Services</label></button>
+  <button class="tablinks" onclick="openCity(event, 'Cart')"><label>Cart</label></button>
 </div>
 
 <div id="home" class="tabcontent">
   <h3>YOU-></h3>
-  <p>WELCOME,</p>
+  <p>WELCOME,<h4>Aditya</h4></p>
 </div>
 
 <div id="about" class="tabcontent">
@@ -75,11 +77,50 @@ body {font-family: "Lato", sans-serif;}
 
 <div id="services" class="tabcontent">
   <h3>Services Offered</h3>
-
+    <div class="row">
+        <div class="card" style="width: 20rem;margin-left:20px;">
+            <img src="{% static "images/football.jpg" %}" class="card-img-top" alt="football">
+                <div class="card-body">
+                    <h3 class="card-title"><b>Football</b></h3>
+                        <p class="card-text">Kick your stress with this vast green football field</p>
+                            <a href="#" class="btn btn-primary">Add to Cart</a>
+                </div>
+        </div>
+        <div class="card" style="width: 20rem;margin-left:20px; ">
+            <img src="{% static "images/swim.jpg" %}" class="card-img-top" alt="football">
+                <div class="card-body">
+                    <h3 class="card-title"><b>Swimming</b></h3>
+                        <p class="card-text">Love swimming? Then consider joining here where in you are provided with top notch facilities.</p>
+                            <a href="#" class="btn btn-primary">Add to cart</a>
+                </div>
+        </div>
+        <div class="card" style="width: 20rem;margin-left:20px; ">
+            <img src="{% static "images/halll.jpg" %}" class="card-img-top" alt="football">
+                <div class="card-body">
+                    <h3 class="card-title"><b>Swimming</b></h3>
+                        <p class="card-text">Book a hall.</p>
+                            <a href="#" class="btn btn-primary">Add to cart</a>
+                </div>
+        </div>
+    </div>
+    <div class="row" style="margin-top: 20px">
+        <div class="card" style="width: 20em;margin-left:20px;">
+            <img src="{% static "images/golf.jpg" %}" class="card-img-top" alt="golf"/>
+            <div class="card-body">
+                <h3 class="card-title"><b>GOLF</b></h3>
+                <p class="card-text">Enjoying golfing?
+                Join here for some exciting golf kicks</p>
+                <a href="#" class="btn btn-primary">Add to cart</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="cart" class="tabcontent">
+  <h3>You have opted for the following offers</h3>
 </div>
 
 <script>
-function openCity(evt, cityName) {
+function openCity(evt, link_name) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
@@ -89,14 +130,10 @@ function openCity(evt, cityName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  document.getElementById(cityName).style.display = "block";
+  document.getElementById(link_name).style.display = "block";
   evt.currentTarget.className += " active";
 }
-
-
 document.getElementById("defaultOpen").click();
 </script>
-
-
 </body>
 </html>
